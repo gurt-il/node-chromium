@@ -4,6 +4,8 @@ const fs = require('fs');
 
 const utils = require('./utils');
 
+const install = require('./install');
+
 function getBinaryPath() {
     const path = utils.getOsChromiumBinPath();
 
@@ -15,5 +17,6 @@ function getBinaryPath() {
 }
 
 module.exports = {
-    path: getBinaryPath()
+    install: install.install,
+    path: getBinaryPath()    
 };
