@@ -17,6 +17,6 @@ function getBinaryPath() {
 }
 
 module.exports = {
-    install: install.install,
+    install: install,
     path: getBinaryPath()    
 };
