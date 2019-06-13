@@ -65,7 +65,7 @@ function unzipArchive(archivePath, outputFolder) {
     });
 }
 
-async function install() {
+async function install(outPath) {
     try {
         console.info('Step 1. Retrieving Chromium latest revision number');
         const revision = await utils.getLatestRevisionNumber();
@@ -74,7 +74,9 @@ async function install() {
         const tmpPath = await downloadChromiumRevision(revision);
 
         console.info('Step 3. Setting up Chromium binaries');
-        await unzipArchive(tmpPath, config.BIN_OUT_PATH);
+        if(!outPath)
+            outPath = config.BIN_OUT_PATH;
+        await unzipArchive(tmpPath, outPath);
 
         console.info('Process is successfully finished');
     } catch (err) {
