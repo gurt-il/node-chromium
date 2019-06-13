@@ -82,4 +82,4 @@ async function install() {
     }
 }
 
-module.exports = install();
+module.exports = { install };
